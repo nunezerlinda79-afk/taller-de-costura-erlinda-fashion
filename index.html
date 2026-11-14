@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erlinda Fashion – Taller de Confecciones</title>
+<style>
+:root{
+  --bg:#fbf7f2;--surface:#ffffff;--text:#2a2320;--muted:#6f625b;--accent:#b5386b;--accent2:#e8b04a;--line:#eadfd5;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1b1614;--surface:#262020;--text:#f4ece6;--muted:#b9aaa1;--accent:#e56a98;--accent2:#e8b04a;--line:#3a312e;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#1b1614;--surface:#262020;--text:#f4ece6;--muted:#b9aaa1;--accent:#e56a98;--accent2:#e8b04a;--line:#3a312e;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;line-height:1.6}
+h1,h2,h3{line-height:1.15}
+.wrap{max-width:1000px;margin:auto;padding:0 20px}
+.hero{padding:60px 0 60px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(181,56,107,.18),transparent 65%)}
+
+/* Estilo para tu logo principal */
+.brand-logo{
+  max-height:120px; /* Puedes cambiar este tamaño según necesites */
+  width:auto;
+  margin:0 auto 16px;
+  display:block;
+  object-fit:contain;
+}
+
+.tag{display:inline-block;font:600 .8rem system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:6px 14px;border-radius:99px}
+.hero h1{font-size:clamp(2.2rem,8vw,4rem);margin:20px 0 14px}
+.hero h1 span{color:var(--accent)}
+.hero p{max-width:560px;margin:0 auto 28px;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem system-ui,sans-serif;background:var(--accent);color:#fff;padding:14px 28px;border-radius:99px;text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:transparent;color:var(--text);border:1px solid var(--line);margin-left:8px}
+.btn-wa{background:#25D366;color:#fff} /* Color verde de WhatsApp */
+section{padding:56px 0}
+h2{font-size:clamp(1.6rem,5vw,2.3rem);text-align:center;margin-bottom:8px}
+.sub{text-align:center;color:var(--muted);margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+
+/* Estilo para las imágenes de cada servicio */
+.card-img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+  background-color:var(--line);
+  display:block;
+}
+
+.card h3{margin:14px 0 6px;font-size:1.15rem}
+.card p{color:var(--muted);font-size:.95rem}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent2);color:#2a2320;font:700 1rem system-ui;display:grid;place-items:center}
+.step p{color:var(--muted)}
+.contact{max-width:520px;margin:auto;display:grid;gap:12px}
+input,select,textarea{width:100%;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:1rem system-ui,sans-serif}
+footer{text-align:center;padding:28px 20px;color:var(--muted);font:.85rem system-ui,sans-serif}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+
+/* Botón flotante de WhatsApp */
+.wa-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  color:#fff;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
+  z-index:100;
+  transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <!-- AQUÍ VA TU LOGO: Cambia "logo.png" por el nombre de tu archivo de imagen -->
+    <img src="logo.jpg" alt="Logo del Taller" class="brand-logo">
+    
+    <span class="tag">Taller de confecciones</span>
+    <h1>Ropa hecha <span>a tu medida</span></h1>
+    <p>Confeccionamos todo tipo de prendas: uniformes, vestidos, ropa de trabajo, deportiva y más. Calidad, buen acabado y entrega puntual.</p>
+    <a class="btn" href="#contacto">Pide tu cotización</a>
+    <a class="btn alt" href="#servicios">Ver servicios</a>
+  </div>
+</header>
+
+<section id="servicios">
+  <div class="wrap">
+    <h2>Lo que confeccionamos</h2>
+    <p class="sub">Si lo imaginas, lo cosemos.</p>
+    <div class="grid">
+      <!-- Cambia los nombres de las imágenes (vestidos.jpg, camisas.jpg, etc.) por tus fotos reales -->
+      <div class="card reveal">
+        <img src="vestidos.jpg" alt="Vestidos" class="card-img">
+        <h3>Vestidos</h3>
+        <p>Diseños para fiestas, folklore y uso diario.</p>
+      </div>
+      <div class="card reveal">
+        <img src="camisa.jpg" alt="Camisas y pantalones" class="card-img">
+        <h3>Camisas y pantalones</h3>
+        <p>Corte preciso, a tu talla exacta.</p>
+      </div>
+      <div class="card reveal">
+        <img src="uniforme.jpg" alt="Uniformes" class="card-img">
+        <h3>Uniformes</h3>
+        <p>Colegios, empresas e instituciones, en cantidad.</p>
+      </div>
+      <div class="card reveal">
+        <img src="trabajo.jpg" alt="Ropa de trabajo" class="card-img">
+        <h3>Ropa de trabajo</h3>
+        <p>Resistente y cómoda para cada oficio.</p>
+      </div>
+      <div class="card reveal">
+        <img src="deportivo.jpg" alt="Ropa deportiva" class="card-img">
+        <h3>Ropa deportiva</h3>
+        <p>Equipos, buzos y poleras personalizadas.</p>
+      </div>
+      <div class="card reveal">
+        <img src="areglos.jpg" alt="Arreglos y ajustes" class="card-img">
+        <h3>Arreglos y ajustes</h3>
+        <p>Dobladillos, cierres y retoques rápidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>¿Por qué elegirnos?</h2>
+    <p class="sub">Compromiso en cada puntada.</p>
+    <div class="grid">
+      <div class="card reveal"><h3>✔ Medidas exactas</h3><p>Cada prenda se hace para ti.</p></div>
+      <div class="card reveal"><h3>✔ Buenos materiales</h3><p>Telas duraderas y costuras reforzadas.</p></div>
+      <div class="card reveal"><h3>✔ Precios justos</h3><p>Descuentos por pedidos grandes.</p></div>
+      <div class="card reveal"><h3>✔ Entrega a tiempo</h3><p>Cumplimos las fechas acordadas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Cómo trabajamos</h2>
+    <p class="sub">Simple y sin complicaciones.</p>
+    <div class="steps" style="max-width:560px;margin:auto">
+      <div class="step reveal"><div><strong>Cuéntanos tu idea</strong><p>Prenda, tela, colores y cantidad.</p></div></div>
+      <div class="step reveal"><div><strong>Tomamos medidas y cotizamos</strong><p>Precio claro desde el inicio.</p></div></div>
+      <div class="step reveal"><div><strong>Confeccionamos</strong><p>Con cuidado en cada detalle.</p></div></div>
+      <div class="step reveal"><div><strong>Recibes tu pedido</strong><p>Listo para estrenar.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contacto">
+  <div class="wrap">
+    <h2>Pide tu cotización</h2>
+    <p class="sub">Escríbenos y te respondemos por WhatsApp.</p>
+    <div class="contact">
+      <input id="nombre" placeholder="Tu nombre">
+      <select id="prenda">
+        <option>Vestidos </option><option>Camisas y pantalones</option><option>Uniformes</option>
+        <option>Ropa de trabajo</option><option>Ropa deportiva</option><option>Arreglos y ajustes</option><option>Otro</option>
+      </select>
+      <textarea id="detalle" rows="3" placeholder="Cuéntanos qué necesitas (cantidad, tela, fecha...)"></textarea>
+      <button class="btn btn-wa" id="enviar">
+        <!-- Logo de WhatsApp en el botón -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Botón flotante de WhatsApp abajo a la derecha -->
+<a href="https://wa.me/59163346443" target="_blank" class="wa-float" aria-label="Chat en WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
+</a>
+
+<footer>© <span id="year"></span> Taller de Confecciones · Hecho con dedicación</footer>
+
+<script>
+// Tu número de WhatsApp configurado con el código de Bolivia (591)
+const WHATSAPP = "59163346443";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("enviar").addEventListener("click", () => {
+  const n = document.getElementById("nombre").value.trim() || "un cliente";
+  const p = document.getElementById("prenda").value;
+  const d = document.getElementById("detalle").value.trim();
+  const msg = "Hola, soy " + n + ". Quiero cotizar: " + p + "." + (d ? " Detalle: " + d : "");
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank");
+});
+
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
